@@ -4,8 +4,38 @@
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
+    height: 313px;
     margin: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.photographer_name_profile {
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: 400;
+}
+
+.photographer_location_profile {
+    font-size: 24px;
+    color: #901C1C;
+    font-weight: 400;
+}
+
+.photographer_tagline_profile {
+    font-size: 18px;
+    color: #757575;
+    margin-top: 20px;
+}
+
+.photographer_picture {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: center;
+    
 }
 
 .contact_button {
@@ -19,6 +49,10 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.filtre {
+    display: flex;
 }
 
 .modal {
