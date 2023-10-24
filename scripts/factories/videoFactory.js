@@ -2,5 +2,31 @@ export default class VideoFactory {
     constructor(data){
         this.data = data;
     }
-    
+    createMediaCard() {
+        const card = document.createElement('div');
+        card.className += "media-card";
+        card.innerHTML = `
+        <video controls class="media-card-video" 
+            src="./assets/photographers/${this.data.video}" 
+            type="video/mp4" alt="${this.data.title}">
+        </video>
+        <div class="media-card-info">
+            <h2 class="media-card-title">${this.data.title}</h2>
+            <div class="media-like-container">
+                <span class="media-like-count">${this.data.likes}</span>
+                <button class="media-like-button" aria-label="Bouton de likes">
+                <i class="fa-solid fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        `;
+        
+        return card;
+    }
+
+    /*createMediaCard() {
+        const mediaCard = document.createElement("p");
+        mediaCard.textContent = "ceci est une video";
+        return mediaCard
+    }*/
 }

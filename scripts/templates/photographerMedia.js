@@ -7,16 +7,17 @@ export default class PhotographerMedias {
     }
     createPhotographerMedias() {
         const profileMedia = document.querySelector(".medias");
-        const content = `
-            <section class="gallery">
-                ${this.medias.map(media => {
+        const content = document.createElement("section");
+        content.classList.add("gallery");
+                this.medias.map(media => {
                     const galleryMedias = new MediasFactory(media);
-                    galleryMedias.createImageCard();
+                    //console.log(galleryMedias);
+                    content.appendChild(galleryMedias.createMediaCard());
+                    
             
-            })}
-            </section>
-        `;
-        profileMedia.innerHTML = content;
+            })
+        ;
+        profileMedia.appendChild(content);
         return content;
     }
 }

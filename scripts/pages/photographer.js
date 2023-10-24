@@ -19,18 +19,33 @@ const getPhotographerById = async () => {
     const medias = media
     //    .map(media => new MediasFactory(media))
         .filter(media => media.photographerId == photographerId);
-        
+            
         return { photographer, medias };
-    }
+}
     
-    const displayPhotographerProfile = async () => {
-        const { photographer, medias } = await getPhotographerById();
-        const headerTemplate = new PhotographerHeader(photographer);
-        headerTemplate.createPhotographerProfile();
-        const mediasTemplate = new PhotographerMedias(photographer, medias);
-        mediasTemplate.createPhotographerMedias();
+const displayPhotographerProfile = async () => {
+    const { photographer, medias } = await getPhotographerById();
+    const headerTemplate = new PhotographerHeader(photographer);
+    headerTemplate.createPhotographerProfile();
+    const mediasTemplate = new PhotographerMedias(photographer, medias);
+    mediasTemplate.createPhotographerMedias();
 }
 
 displayPhotographerProfile();
 //displayModal();
 //closeModal();
+
+const photographerFooter = () => {
+    const footer = document.createElement('aside');
+    footer.className = "footer-info";
+    footer.innerHTML =`
+        <div class="footer-container">
+            <span class="footer-likes" id="totalLikesCount">totalMediaLikeCount</span>
+            <i class="fa-solid fa-heart"></i>
+        </div>
+        <p>Prix € / jour</p>
+        `;
+
+    return footer;
+}
+photographerFooter();

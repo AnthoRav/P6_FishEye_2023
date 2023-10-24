@@ -1,15 +1,39 @@
-export default class ImageFactory{
+
+export default class ImageFactory {
     constructor(data){
         this.data = data;
     }
-    createImageCard() {
-    const card = document.createElement( 'card' );
-    const imageCard = `
-
-    <h2>kjhbùm</h2>
-    `;
-   // <img class="gallery_thumbnail" src="./assets/images/photographers/${this.photographer}/${this.data.image}" alt="${this.data.alt}">
-    card.innerHTML = imageCard;
-    return card;
+    createMediaCard() {
+        const card = document.createElement('div');
+        card.className = "media-card";
+        card.innerHTML = `
+        <img class="media-card-img" src="./assets/photographers/${this.data.image}" alt="${this.data.title}">
+        <div class="media-card-info">
+            <h2 class="media-card-title">${this.data.title}</h2>
+            <div class="media-like-container">
+                <span class="media-like-count">${this.data.likes}</span>
+                <button class="media-like-button" aria-label="Bouton de likes">
+                <i class="fa-solid fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        `;
+        
+        return card;
     }
+
+    /*createMediaCard() {
+        const mediaCard = document.createElement("div");
+        mediaCard.classList.add("card");
+        const img = document.createElement("img");
+        img.setAttribute ("src", `./assets/photographers/${this.data.image}`);
+        img.setAttribute("alt","");
+        const h2 = document.createElement( 'h2' );
+        h2.textContent = this.data.title;
+        mediaCard.appendChild(img);
+        mediaCard.appendChild(h2);
+
+
+        return (mediaCard);
+    }*/
 }
