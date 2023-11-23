@@ -1,11 +1,7 @@
 main {
     margin: 0 100px;
 }
-
-#contact_modal {
-    display: none;
-}
-
+    /* Photographer Infos */
 .photograph-header {
     background-color: #FAFAFA;
     height: 313px;
@@ -40,8 +36,12 @@ main {
     object-position: center;
     
 }
+#contact_button:hover {
+    background-color: #DB8876;
+    color: black;
+}
 
-.contact_button {
+.button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -54,15 +54,89 @@ main {
     cursor: pointer;
 }
 
+    /* Filters */
 .filtre {
     display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    gap: 30px;
+    padding: 10px 0 40px 0;
+}
+.dropdown {
+    z-index: 10;
+    /*position: absolute;*/
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0;
+    height: 50px;
+}
+.dropdown_content {
+    max-height: 0;
+    background-color: #901C1C;
+    transition: max-height .1s ease-in-out;
+    border-radius: 0 0 5px 5px;
+}
+.dropdown_content li {
+    position: relative;
+    width: 170px;
 }
 
+.dropdown_content li::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 1px;
+    background-color: white;
+}
+.button_drop,
+.dropdown_content li button{
+    height: 50px;
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+}
+
+.button_drop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    background-color: #901C1C;
+}
+
+.dropdown_content li button {
+    width: 100%;
+    text-align: left;
+    background-color: #901C1C;
+    border-radius: 5px;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+.open-filter {
+    max-height: 200px;
+}
+.open-filter-button {
+    overflow: visible;
+    border-radius: 5px 5px 0 0;
+}
+option {
+    border-top: 2px solid white;
+    padding: 10px 0px;
+    margin: 20px;
+}
+
+    /* Medias Gallery */
 .gallery {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px 60px;
+    gap: 10px 60px;
     justify-content: space-between;
 }
 
@@ -70,10 +144,17 @@ main {
     display: flex;
     flex-direction: column;
     width: 350px;
-    height: 350px;
+    height: 370px;
     overflow: hidden;
-    gap: 10px;
-
+    gap: 5px;
+    animation: fade 500ms ease-in-out;
+}
+@keyframes fade{
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
+    }   
 }
 .media-card-img {
     width: 100%;
@@ -92,8 +173,9 @@ main {
 .media-card-info {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
-.media-card-info h2 {
+.media-card-info h2, .media-card-title {
     font-size: 24px;
     color: #901C1C;
     font-weight: 400;
@@ -106,6 +188,7 @@ main {
 .media-like-container {
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 .media-like-button {
     cursor: pointer;
@@ -115,33 +198,58 @@ main {
     background-color: transparent;
     padding: 0 2px;
 }
-.footer {
+.liked {
+    color: #DB8876;
+}
+
+    /* Likes and Price Card */
+.likes_and_price {
     position: sticky;
     bottom: 0;
     left: 100%;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     border-radius: 5px;
     background-color: #DB8876;
     padding: 15px;
     width: fit-content;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+      /* FORM */
+
+#contact_modal, .lightbox_modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: white;
 }
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 38%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+    padding: 20px 35px;
+    margin: 62px auto;
 }
 
 .modal header {
     justify-content: space-between;
     width: 100%;
+    height: 150px;
+    align-items: baseline;
 }
 
 .modal header img {
@@ -151,7 +259,8 @@ main {
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    text-align: start;
+    line-height: 1.1em;
 }
 
 form {
@@ -164,6 +273,7 @@ form {
 form label {
     color: #312E2E;
     font-size: 36px;
+    margin: 6px 0;
 }
 
 form div {
@@ -179,4 +289,69 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    outline: none;
+    font-size: 40px;
+    padding: 5px;
+}
+.form_msg {
+    height: 170px;
+}
+
+    /* Lightbox */
+.btn_next, .btn_previous {
+    color: #901C1C;
+    background: white;
+    font-size: 48px;
+}
+.lightbox{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    height: 90%;
+    height: 900px;
+    background-color: white;
+    padding: 25px 60px 0;
+    border-radius: 5px;
+}
+.lightbox_media{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    height: 90%;
+}
+.lightbox_media img,
+.lightbox_media video{
+    width: 100%;
+    border-radius: 5px;
+    height: 900px;
+    object-fit: cover;
+    object-position: center;
+}
+.btn_close_lightbox{
+    z-index: 100;
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    background: white;
+}
+.btn_previous,
+.btn_next{
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    transform: translateY(-50%);
+    padding: 5px;
+}
+
+.btn_next{
+    right: 10px;
+}
+
+.btn_previous{
+    left: 10px;
 }

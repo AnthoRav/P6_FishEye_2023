@@ -7,16 +7,18 @@ export default class ImageFactory {
         const card = document.createElement('div');
         card.className = "media-card";
         card.innerHTML = `
-        <img class="media-card-img" src="./assets/photographers/${this.data.image}" alt="${this.data.title}">
-        <div class="media-card-info">
-            <h2 class="media-card-title">${this.data.title}</h2>
-            <div class="media-like-container">
-                <span class="media-like-count">${this.data.likes}</span>
-                <button class="media-like-button" aria-label="Bouton de likes">
-                <i class="fa-solid fa-heart"></i>
-                </button>
+        <a href="#">
+            <img class="media-card-img" src="./assets/photographers/${this.data.image}" alt="${this.data.title}">
+        </a>
+            <div class="media-card-info">
+                <h2 class="media-card-title">${this.data.title}</h2>
+                <div class="media-like-container">
+                    <span class="media-like-count">${this.data.likes}</span>
+                    <button class="media-like-button" aria-label="Bouton de likes">
+                    <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
             </div>
-        </div>
         `;
         
         return card;

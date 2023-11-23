@@ -13,8 +13,7 @@ export default class PhotographerMedias {
                     const galleryMedias = new MediasFactory(media);
                     //console.log(galleryMedias);
                     content.appendChild(galleryMedias.createMediaCard());
-                    
-            
+                       
             })
         ;
         profileMedia.appendChild(content);

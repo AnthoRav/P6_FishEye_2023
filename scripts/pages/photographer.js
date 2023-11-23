@@ -3,13 +3,16 @@ import PhotographerApi from "../API/photographerApi.js";
 import PhotographerHeader from "../templates/photographerProfile.js";
 import PhotographerMedias from "../templates/photographerMedia.js";
 import Photographer from "../models/Photographer.js";
-import displayModal from "../utils/contactForm.js";
-//import { closeModal } from "../utils/contactForm.js";
+import { displayHideModal, validateForm } from "../utils/contactForm.js";
+import {getAllLikes , likeOrDislike} from "../utils/likes.js";
+import { OpenCloseFilter, displayMediaFilter } from "../utils/filtre.js";
+//import photographerTemplate from "../templates/photographer.js";
+import { displayLightbox } from "../utils/lightbox.js";
 
 const photographersApi = new PhotographerApi("./data/photographers.json");
 const photographerId = new URLSearchParams(window.location.search).get('id');
 
-const getPhotographerById = async () => {
+export const getPhotographerById = async () => {
     const photographersData = await photographersApi.getPhotographers();
     const photographers = photographersData.photographers;
     const media = photographersData.media;
@@ -21,31 +24,23 @@ const getPhotographerById = async () => {
         .filter(media => media.photographerId == photographerId);
             
         return { photographer, medias };
+
 }
-    
+
 const displayPhotographerProfile = async () => {
     const { photographer, medias } = await getPhotographerById();
     const headerTemplate = new PhotographerHeader(photographer);
     headerTemplate.createPhotographerProfile();
     const mediasTemplate = new PhotographerMedias(photographer, medias);
     mediasTemplate.createPhotographerMedias();
+
+    getAllLikes();
+    likeOrDislike();
+    //validateForm();
+    displayHideModal();
+    OpenCloseFilter();
+    displayMediaFilter(medias);
+    displayLightbox(mediasTemplate);
 }
 
 displayPhotographerProfile();
-//displayModal();
-//closeModal();
-
-const photographerFooter = () => {
-    const footer = document.createElement('aside');
-    footer.className = "footer-info";
-    footer.innerHTML =`
-        <div class="footer-container">
-            <span class="footer-likes" id="totalLikesCount">totalMediaLikeCount</span>
-            <i class="fa-solid fa-heart"></i>
-        </div>
-        <p>Prix € / jour</p>
-        `;
-
-    return footer;
-}
-photographerFooter();

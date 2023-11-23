@@ -5,7 +5,4 @@ export default class Image extends Media {
         super(data);
         this.image = data.image;
     }
-    /*get picture() {
-        return `/asset/images/photographers/${this.photographer}/${this.image}`
-    }*/
 }
