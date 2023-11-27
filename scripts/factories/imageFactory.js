@@ -8,7 +8,7 @@ export default class ImageFactory {
         card.className = "media-card";
         card.innerHTML = `
         <a href="#">
-            <img class="media-card-img" src="./assets/photographers/${this.data.image}" alt="${this.data.title}">
+            <img id="light_medias" class="media-card-img" src="./assets/photographers/${this.data.image}" alt="${this.data.title}">
         </a>
             <div class="media-card-info">
                 <h2 class="media-card-title">${this.data.title}</h2>

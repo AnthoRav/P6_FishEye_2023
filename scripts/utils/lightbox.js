@@ -1,32 +1,35 @@
 
 export const displayLightbox = medias => {
+    //selection des elements de la lightbox
     const lightboxModal = document.querySelector('.lightbox_modal');
     const btnClose = document.querySelector('.btn_close_lightbox');
     const btnPrevious = document.querySelector('.btn_previous');
     const btnNext = document.querySelector('.btn_next');
     const lightboxMedia = document.querySelector('.lightbox_media');
-    const lightboxAllMedia = Array.from(document.querySelectorAll('.media-card a, video'));
+    //const lightboxAllMedia = Array.from(document.querySelectorAll('.media-card a'));
+    const lightboxAllMedia = Array.from(document.querySelectorAll('#light_medias'));
+
 
     //const photographer = medias.photographer;
     const mediasList = medias.medias;
     let currentIndex = 0;
-
+    //boucle sur les medias avec ecoute surclic de chaque elements pour ouvrir la lightbox
     lightboxAllMedia.forEach((media, index) => {
         media.addEventListener('click', () => {
-            //const mediaId = media.dataset.media;
-            //const mediaIndex = mediasList.findIndex(media => media.id == mediaId);
-            //currentIndex = mediaIndex;
             currentIndex = index
             lightboxModal.style.display = 'flex';
             lightboxTemplate();
         });
     });
+
+    //fermeture de la lightbox
     const closeLightbox = () => {
         lightboxModal.style.display = 'none';
         lightboxMedia.innerHTML = '';
     };
     btnClose.addEventListener('click', () => closeLightbox());
 
+    //contenu de la lightbox
     const lightboxTemplate = () => {
         const currentMedia = mediasList[currentIndex];
         //console.log(currentMedia)
@@ -41,15 +44,16 @@ export const displayLightbox = medias => {
         `
     };
 
+    //fonctions pour naviguez dans la lightbox avec les flèches
     const nextMedia = () => {
         currentIndex++; //augmentation de l'index, passage au medias suivant du tableau
-        if (currentIndex > mediasList.length - 1) currentIndex = 0; 
-        lightboxTemplate();
+        if (currentIndex > mediasList.length - 1) currentIndex = 0; //retour au debut du tableau
+        lightboxTemplate(); //affichage du media
     };
 
     const previousMedia = () => {
-        currentIndex--;
-        if (currentIndex < 0) currentIndex = mediasList.length - 1;
+        currentIndex--; //diminution de l'index, passage au medias précédent du tableau
+        if (currentIndex < 0) currentIndex = mediasList.length - 1; //retour a la fin du tableau
         lightboxTemplate();
     };
     //ecoute au clic des fleches de la lightbox

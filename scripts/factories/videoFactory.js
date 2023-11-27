@@ -7,7 +7,7 @@ export default class VideoFactory {
         card.className += "media-card";
         card.innerHTML = `
         <a href="#">
-            <video controls class="media-card-video" 
+            <video controls id="light_medias" class="media-card-video" 
                 src="./assets/photographers/${this.data.video}" 
                 type="video/mp4" alt="${this.data.title}">
             </video>

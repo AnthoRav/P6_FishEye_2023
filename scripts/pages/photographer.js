@@ -36,7 +36,7 @@ const displayPhotographerProfile = async () => {
 
     getAllLikes();
     likeOrDislike();
-    //validateForm();
+    validateForm();
     displayHideModal();
     OpenCloseFilter();
     displayMediaFilter(medias);

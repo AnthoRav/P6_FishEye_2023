@@ -1,12 +1,12 @@
 import PhotographerApi from "../API/photographerApi.js";
 
-  const photographersApi = new PhotographerApi("./data/photographers.json");
-  const data = await photographersApi.getPhotographers();
-  const id = window.location.search.split("id=")[1];
-  //console.log(data.media)
-  const photographerId = data.photographers.filter(
-    (photographer) => photographer.id == id
-  );
+const photographersApi = new PhotographerApi("./data/photographers.json");
+const data = await photographersApi.getPhotographers();
+const id = window.location.search.split("id=")[1];
+//console.log(data.media)
+const photographerId = data.photographers.filter(
+  (photographer) => photographer.id == id
+);
 
 const likesAndPriceDiv = document.querySelector(".likes_and_price");
     let likesAndPrice = "";
@@ -51,7 +51,7 @@ const likesAndPriceDiv = document.querySelector(".likes_and_price");
       <span class="total_likes" id="totalLikesCount">${totalLikes}</span>
       <i class="fa-solid fa-heart"></i>
       </div>
-      <p><span class="photographer-price">${photographerId[0].price}</span> € / jour</p>
+      <span class="photographer-price">${photographerId[0].price} € / jour</span>
       </div>
     `;
     likesAndPriceDiv.innerHTML += likesAndPrice;

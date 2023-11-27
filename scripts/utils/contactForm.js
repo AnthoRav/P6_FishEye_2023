@@ -8,24 +8,19 @@ import PhotographerApi from "../API/photographerApi.js";
     (photographer) => photographer.id == id
   );
 
+//affichage et fermeture du formulaire 
 export const displayHideModal = () => {
     const contactButton = document.querySelector("#contact_button");
     const modal = document.querySelector("#contact_modal");
     const closeModal = document.querySelector(".btn_close");
     contactButton.addEventListener("click", () => {
         modal.style.display = "block";
-        document.querySelector('.photographName').innerText = "Contactez-moi   " + `${photographerName[0].name}`
+        document.querySelector('.photographName').innerText =`${photographerName[0].name}`
         //closeModal.focus();
     });
     closeModal.addEventListener("click", () => modal.style.display = "none");
     document.querySelector(".btn-submit").addEventListener("click", () => modal.style.display = "none");
-
 }
-/*
-export const closeModal = () => {
-    modal.style.display = "none";
-}
-*/
 
 export function validateForm() {
     // form 
@@ -40,9 +35,19 @@ export function validateForm() {
         e.preventDefault(); 
     
     // Afficher les valeurs dans la console
+    const formData = {
+        Prénom : firstName.value,
+        Nom: lastName.value,
+        Email: email.value,
+        Message: message.value
+    }
+    console.log(formData);
+    /*
     console.log("Prénom:", firstName.value);
     console.log("Nom:", lastName.value);
     console.log("Email:", email.value);
     console.log("Message:", message.value);
+    */
+    form.reset();
     });
 }
