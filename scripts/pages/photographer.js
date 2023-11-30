@@ -6,7 +6,7 @@ import Photographer from "../models/Photographer.js";
 import { displayHideModal, validateForm } from "../utils/contactForm.js";
 import {getAllLikes , likeOrDislike} from "../utils/likes.js";
 import { OpenCloseFilter, displayMediaFilter } from "../utils/filtre.js";
-//import photographerTemplate from "../templates/photographer.js";
+import photographerTemplate from "../templates/photographer.js";
 import { displayLightbox } from "../utils/lightbox.js";
 
 const photographersApi = new PhotographerApi("./data/photographers.json");
