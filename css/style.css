@@ -59,16 +59,16 @@ h1 {
 }
 
 .photographer_location {
-    font-size: 13px;
+    font-size: 18px;
     color: #901C1C;
     font-weight: 400;
 }
 
 .photographer_tagline {
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .photographer_price {
-    font-size: 9px;
+    font-size: 14px;
     color: #757575;
 }
