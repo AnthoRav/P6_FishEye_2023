@@ -355,3 +355,7 @@ form input, form textarea {
 .btn_previous{
     left: 10px;
 }
+.media-card a:focus:not(:hover) {
+    outline: #DB8876;
+    border-radius: 5px;
+}

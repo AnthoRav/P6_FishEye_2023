@@ -6,11 +6,9 @@ export const displayLightbox = medias => {
     const btnPrevious = document.querySelector('.btn_previous');
     const btnNext = document.querySelector('.btn_next');
     const lightboxMedia = document.querySelector('.lightbox_media');
-    //const lightboxAllMedia = Array.from(document.querySelectorAll('.media-card a'));
-    const lightboxAllMedia = Array.from(document.querySelectorAll('#light_medias'));
+    //const lightboxAllMedia = Array.from(document.querySelectorAll('#light_medias'));
+    const lightboxAllMedia = document.querySelectorAll('.media-lightbox');
 
-
-    //const photographer = medias.photographer;
     const mediasList = medias.medias;
     let currentIndex = 0;
     //boucle sur les medias avec ecoute surclic de chaque elements pour ouvrir la lightbox
@@ -18,9 +16,29 @@ export const displayLightbox = medias => {
         media.addEventListener('click', () => {
             currentIndex = index
             lightboxModal.style.display = 'flex';
+            btnClose.focus();
             lightboxTemplate();
         });
+        media.addEventListener('keypress', (e) => {
+            if (e.key === 'Escape' && e.key === 'Enter') {
+            lightboxModal.style.display = 'flex';
+            btnClose.focus();
+            lightboxTemplate();
+            }
+        }) 
     });
+    /*
+    function handleKey(e){
+        //console.log('texte')
+        lightboxModal.style.display = 'flex';
+        btnClose.focus();
+        lightboxTemplate();
+    }
+    /*
+    lightboxTest.forEach(function(e) {
+        e.addEventListener('keypress', handleKey);
+        console.log(e)
+    });*/
 
     //fermeture de la lightbox
     const closeLightbox = () => {
@@ -36,8 +54,8 @@ export const displayLightbox = medias => {
         //console.log(currentIndex)
         lightboxMedia.innerHTML = `
             ${currentMedia.image ? `
-            <img src="assets/photographers/${currentMedia.image}" alt="${currentMedia.alt}">` : 
-            `<video controls aria-label="${currentMedia.alt}"><source src="assets/photographers/${currentMedia.video}" 
+            <img src="assets/photographers/${currentMedia.image}" alt="${currentMedia.title}" >` : 
+            `<video controls aria-label="${currentMedia.title}"><source src="assets/photographers/${currentMedia.video}"    
             type="video/mp4"></video>`}
             <h2 class="media-card-title">${currentMedia.title}</h2>
         

@@ -6,7 +6,7 @@ export default class VideoFactory {
         const card = document.createElement('div');
         card.className += "media-card";
         card.innerHTML = `
-        <a href="#">
+        <a href="#" class="media-lightbox" role="link" tabindex='1'>
             <video controls id="light_medias" class="media-card-video" 
                 src="assets/photographers/${this.data.video}" 
                 type="video/mp4" alt="${this.data.title}">

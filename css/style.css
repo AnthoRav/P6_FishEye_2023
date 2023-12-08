@@ -72,3 +72,9 @@ h1 {
     font-size: 14px;
     color: #757575;
 }
+/*styliser le lien quand activé par le clavier (s'appliquera lorsque l'utilisateur aura cliqué 
+sur le lien (focus) mais que la souris ne le survolera pas (hover)*/
+article a:focus:not(:hover) {
+    outline: #DB8876;
+    border-radius: 5px;
+}

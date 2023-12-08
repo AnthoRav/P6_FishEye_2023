@@ -7,7 +7,7 @@ export default class ImageFactory {
         const card = document.createElement('div');
         card.className = "media-card";
         card.innerHTML = `
-        <a href="#">
+        <a href="#" class="media-lightbox" role="link" tabindex='1'>
             <img id="light_medias" class="media-card-img" src="assets/photographers/${this.data.image}" alt="${this.data.title}">
         </a>
             <div class="media-card-info">

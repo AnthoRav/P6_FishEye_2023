@@ -6,13 +6,20 @@ import { likeOrDislike } from "./likes.js";
 export const OpenCloseFilter = () => {
   const filterMenu = document.querySelector(".dropdown_content");
   const filterMenuButton = document.querySelector(".button_drop");
-  //const filterButtons = document.querySelectorAll(".dropdown_content button");
+  const filterButtons = document.querySelectorAll(".dropdown_content button");
 
   filterMenuButton.addEventListener("click", () => {
+    
     filterMenu.classList.toggle("open-filter");
     //ouverture du menu de selection des filtres et rotation du chevron
     document.querySelector(".dropdown").classList.toggle("open-filter-button");
     document.querySelector(".fa-chevron-up").classList.toggle("rotate");
+
+    const newAriaHiddenValue = filterMenu.classList.contains("open-filter") ? "false" : "true";
+    filterMenu.setAttribute("aria-hidden", newAriaHiddenValue);
+
+    const newTabIndexValue = filterMenu.classList.contains("open-filter") ? "0" : "-1";
+    filterButtons.forEach(button => button.setAttribute("tabindex", newTabIndexValue));
   })
 }
 //selection du filtre en cours d'utilisation et tableau des filtre dans les bouton li
