@@ -19,26 +19,30 @@ export const displayLightbox = medias => {
             btnClose.focus();
             lightboxTemplate();
         });
+        /*
         media.addEventListener('keypress', (e) => {
-            if (e.key === 'Escape' && e.key === 'Enter') {
+            if (e.key === 'Space' || e.key === 'Enter') {
+            //console.log('texte')
             lightboxModal.style.display = 'flex';
             btnClose.focus();
             lightboxTemplate();
             }
         }) 
+        */
     });
-    /*
+    
     function handleKey(e){
-        //console.log('texte')
+        if (e.key === 'Space' && e.key === 'Enter') {
+        console.log('texte')
         lightboxModal.style.display = 'flex';
         btnClose.focus();
         lightboxTemplate();
+        }
     }
-    /*
-    lightboxTest.forEach(function(e) {
-        e.addEventListener('keypress', handleKey);
-        console.log(e)
-    });*/
+    
+    lightboxAllMedia.forEach(function(e) {
+        e.addEventListener('keyup', handleKey);
+    });
 
     //fermeture de la lightbox
     const closeLightbox = () => {
@@ -58,7 +62,6 @@ export const displayLightbox = medias => {
             `<video controls aria-label="${currentMedia.title}"><source src="assets/photographers/${currentMedia.video}"    
             type="video/mp4"></video>`}
             <h2 class="media-card-title">${currentMedia.title}</h2>
-        
         `
     };
 

@@ -1,2 +1,0 @@
-//getMedia
-//filtre pas id

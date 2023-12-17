@@ -29,24 +29,24 @@
       <section>
         <div class="filtre">
           <h2>Trier par</h2>
-          <div class="button dropdown">
-              <button class="button_drop" type="button" role="button" aria-expanded="false" aria-haspopup="listbox" aria-controls="filter options" aria-label="Sort by">
+            <div class="dropdown">
+              <button class="button_drop button" type="button" role="button" aria-expanded="false" aria-haspopup="listbox" 
+                aria-controls="filter options" aria-label="Sort by">
                 <span id="current_filter">Titre</span>
                 <span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
               </button>
               <ul class="dropdown_content" aria-hidden="true">
                 <li role="option">
-                    <button type="button" tabindex="0" aria-label="Sort by title">Titre</button>
+                    <button type="button" tabindex="-1" aria-label="Sort by title">Titre</button>
                 </li>
                 <li role="option">
-                    <button type="button" tabindex="0" aria-label="Sort by popularity">Popularité</button>
+                    <button type="button" tabindex="-1" aria-label="Sort by popularity">Popularité</button>
                 </li>
                 <li role="option">
-                    <button type="button" tabindex="0" aria-label="Sort by date">Date</button>
+                    <button type="button" tabindex="-1" aria-label="Sort by date">Date</button>
                 </li>
               </ul>
             </div>
-          </div>
         </div>
         <!--Gallery des médias-->
         <div class="medias"></div>
@@ -57,11 +57,12 @@
     <footer>
     </footer>
     <!-- MODAL FORM -->
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog">
 			<div class="modal">
 				<header>
           <h2>Contactez moi <br> <span class="photographName"></span></h2>
-          <img src="assets/icons/close.svg" class="btn_close" alt="Fermeture du formulaire de contact" aria-label="Close contact form" />
+          <img src="assets/icons/close.svg" class="btn_close" alt="Fermeture du formulaire de contact" 
+            aria-label="Close contact form" />
         </header>
 				<form>
 					<div>
@@ -79,7 +80,7 @@
                       aria-label="Your message" aria-labelledby="yourMessageLabel" required>
             </textarea>
 					</div>
-          <button class="button btn-submit" type="submit">Envoyer</button>
+          <button class="button btn-submit" type="submit" aria-label="Send">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -97,7 +98,7 @@
           </button>
           <div class="lightbox_media" role="media" aria-label="Current Media"></div>
       </div> 
-  </div>
+    </div>
   <!-- SCRIPT -->
     <script type="module" src="scripts/pages/photographer.js"></script>
   </body>

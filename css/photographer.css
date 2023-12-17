@@ -63,6 +63,10 @@ main {
     gap: 30px;
     padding: 10px 0 40px 0;
 }
+.filtre_section{
+    position: relative;
+
+}
 .dropdown {
     z-index: 10;
     /*position: absolute;*/
@@ -79,7 +83,7 @@ main {
 }
 .dropdown_content li {
     position: relative;
-    width: 170px;
+    width: 150px;
 }
 
 .dropdown_content li::before{
@@ -156,6 +160,10 @@ option {
         opacity: 1;
     }   
 }
+.media-card a {
+    height: 307px;
+    padding: 2px;
+}
 .media-card-img {
     width: 100%;
     height: 300px;
@@ -189,6 +197,7 @@ option {
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-right: 2px;
 }
 .media-like-button {
     cursor: pointer;
@@ -197,6 +206,10 @@ option {
     color: #901C1C;
     background-color: transparent;
     padding: 0 2px;
+}
+.media-like-button:focus-visible:not(:hover){
+    outline: 2px solid #DB8876;
+    border-radius: 5px;
 }
 .liked {
     color: #DB8876;
@@ -358,4 +371,7 @@ form input, form textarea {
 .media-card a:focus:not(:hover) {
     outline: #DB8876;
     border-radius: 5px;
+}
+.button:focus:not(:hover) {
+    background-color: #DB8876;
 }

@@ -33,7 +33,6 @@ export function validateForm() {
 
     form.addEventListener("submit", e => {
         e.preventDefault(); 
-    
     // Afficher les valeurs dans la console
     const formData = {
         Prénom : firstName.value,
@@ -42,12 +41,6 @@ export function validateForm() {
         Message: message.value
     }
     console.log(formData);
-    /*
-    console.log("Prénom:", firstName.value);
-    console.log("Nom:", lastName.value);
-    console.log("Email:", email.value);
-    console.log("Message:", message.value);
-    */
     form.reset();
     });
 }
