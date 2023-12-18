@@ -309,6 +309,9 @@ form input, form textarea {
 .form_msg {
     height: 170px;
 }
+.btn_close_form {
+    background-color: #DB8876;
+}
 
     /* Lightbox */
 .btn_next, .btn_previous {

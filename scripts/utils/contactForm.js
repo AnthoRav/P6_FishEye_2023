@@ -12,7 +12,7 @@ import PhotographerApi from "../API/photographerApi.js";
 export const displayHideModal = () => {
     const contactButton = document.querySelector("#contact_button");
     const modal = document.querySelector("#contact_modal");
-    const closeModal = document.querySelector(".btn_close");
+    const closeModal = document.querySelector(".btn_close_form");
     contactButton.addEventListener("click", () => {
         modal.style.display = "block";
         closeModal.focus();
@@ -48,7 +48,7 @@ export function validateForm() {
         Nom: lastName.value,
         Email: email.value,
         Message: message.value
-    }
+    }   
     console.log(formData);
     form.reset();
     });
