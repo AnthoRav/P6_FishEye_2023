@@ -14,6 +14,8 @@ export const OpenCloseFilter = () => {
     //ouverture du menu de selection des filtres et rotation du chevron
     document.querySelector(".dropdown").classList.toggle("open-filter-button");
     document.querySelector(".fa-chevron-up").classList.toggle("rotate");
+    const isExpanded = filterMenuButton.getAttribute("aria-expanded") === "true" || false;
+    filterMenuButton.setAttribute("aria-expanded", !isExpanded);
 
     const newAriaHiddenValue = filterMenu.classList.contains("open-filter") ? "false" : "true";
     filterMenu.setAttribute("aria-hidden", newAriaHiddenValue);

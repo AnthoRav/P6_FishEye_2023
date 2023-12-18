@@ -15,11 +15,20 @@ export const displayHideModal = () => {
     const closeModal = document.querySelector(".btn_close");
     contactButton.addEventListener("click", () => {
         modal.style.display = "block";
+        closeModal.focus();
         document.querySelector('.photographName').innerText =`${photographerName[0].name}`
         //closeModal.focus();
     });
     closeModal.addEventListener("click", () => modal.style.display = "none");
     document.querySelector(".btn-submit").addEventListener("click", () => modal.style.display = "none");
+
+    closeModal.addEventListener('keyup', e => {
+        switch(e.key) {
+            case 'Escape':
+                modal.style.display = "none";
+                break;
+        }
+    });
 }
 
 export function validateForm() {
